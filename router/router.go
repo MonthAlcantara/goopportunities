@@ -1,12 +1,12 @@
 package router
 
 import (
-	//lib pra criação de APIs
+	//lib to create the routes
 	"github.com/gin-gonic/gin"
 )
 
 func NewConection() {
-	//Initializa router with Gin's default config
+	//Initialize router with Gin's default config
 	router := gin.Default()
 	// Initialize routes
 	initializeRoutes(router)

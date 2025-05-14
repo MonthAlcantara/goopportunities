@@ -1,8 +1,7 @@
 package router
 
 import (
-	"net/http"
-
+	"github.com/MonthAlcantara/goopportunities/handler"
 	"github.com/gin-gonic/gin"
 )
 
@@ -10,38 +9,19 @@ func initializeRoutes(router *gin.Engine) {
 	// Definindo uma rota GET /ping
 	v1 := router.Group("/api/v1")
 	{
-		v1.GET("/opening", func(c *gin.Context) {
-			c.JSON(http.StatusOK, gin.H{
-				"message": "Hello Canadá",
-			})
-		})
+		v1.GET("/opening", handler.GetOpeningHandler)
 	}
 	{
-		v1.POST("/opening", func(c *gin.Context) {
-			c.JSON(http.StatusOK, gin.H{
-				"message": "POST opening",
-			})
-		})
+		v1.POST("/opening", handler.CreateOpeningHandler)
 	}
 	{
-		v1.DELETE("/opening", func(c *gin.Context) {
-			c.JSON(http.StatusOK, gin.H{
-				"message": "DELETE opening",
-			})
-		})
+		v1.DELETE("/opening", handler.DeleteOpeningHandler)
+
 	}
 	{
-		v1.PUT("/opening", func(c *gin.Context) {
-			c.JSON(http.StatusOK, gin.H{
-				"message": "PUT opening",
-			})
-		})
+		v1.PUT("/opening", handler.UpdateOpeningHandler)
 	}
 	{
-		v1.GET("/openings", func(c *gin.Context) {
-			c.JSON(http.StatusOK, gin.H{
-				"message": "GET openings",
-			})
-		})
+		v1.GET("/openings", handler.GetAllOpeningHandler)
 	}
 }
