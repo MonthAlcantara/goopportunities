@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
+	"github.com/MonthAlcantara/goopportunities/router"
 )
 
 func main() {
-	gin := gin.Default()
+	//Initialize router
+	router.NewConection()
 }
